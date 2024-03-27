@@ -1,0 +1,28 @@
+
+<div class="bg-main-light p-4 my-4">
+<h3>Shop Cart</h3>
+<h6 class="text-main">total price :{{carddetailsdata?.totalCartPrice}} EGP</h6>
+<div class="row align-items-center border-bottom py-3" *ngFor="let product of carddetailsdata?.products">
+    <div class="col-md-2">
+        <img class="w-100" [src]="product.product.imageCover" alt="">
+    </div>
+    <div class="col-md-10 d-flex justify-content-between">
+        <div class="">
+            <h6>{{product.product.title}}</h6>
+        <h6 class="text-main">price:{{product.price}}</h6>
+        <button (click)="callremovecart(product.product._id)" class="btn m-0 p-0 "><i class="fa-regular fa-trash-can color-danger"></i> remove</button>
+
+        </div>
+        <div class="">
+            <button class="btn border-main btn-sm" (click)="callupdatecountcart(product.product._id,product.count+1)"><i class="fa-solid fa-plus"></i></button>
+            <span class="mx-2">{{product.count}}</span>
+            <button class="btn border-main btn-sm" (click)="callupdatecountcart(product.product._id,product.count-1)"><i class="fa-solid fa-minus"></i></button>
+
+        </div>
+    </div>
+
+</div>
+<button class="btn bg-main text-white my-3"> <a class="text-white" routerLink="/checkout">Online Payment</a></button>
+<button class="btn bg-main text-white mx-2"> Master </button>
+
+</div>
